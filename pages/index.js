@@ -6,6 +6,7 @@ import MovieList from '../components/movieList'
 import { getMovies } from '../actions'
 
 const Home = (props) => {
+  const { images } = props
   // const [movies, setMovies] = useState([])
 
   // useEffect(() => {
@@ -31,7 +32,7 @@ const Home = (props) => {
                 />
             </div>
             <div className="col-lg-9">
-              <Carousel />
+              <Carousel images={images}/>
               <div className="row">
                 <MovieList movies={props.movies || []} />
               </div>
@@ -45,9 +46,14 @@ const Home = (props) => {
 
 Home.getInitialProps = async() => {
   const movies = await getMovies()
+  const images = movies.map(movie => ({ 
+    id: `image-${movie.id}`, 
+    url: movie.cover,
+    name: movie.name }))
       
   return {
-    movies: movies
+    movies,
+    images
   }
 }
 
