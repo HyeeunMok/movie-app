@@ -8,7 +8,11 @@ const MovieCreateForm = (props) => {
 
   const [form, setForm] = useState({
     name: '',
-    description: ''
+    description: '',
+    rating: '',
+    image: '',
+    cover: '',
+    longDesc: ''
   })
 
   const handleChange = (event) => {
