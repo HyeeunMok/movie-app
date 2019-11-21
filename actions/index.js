@@ -1,6 +1,8 @@
 
 import axios from 'axios'
 
+const BASE_URL = 'http://localhost:3000'
+
 const MOVIE_DATA = []
 
 const CATEGORY_DATA = [
@@ -25,12 +27,7 @@ export const getCategories = () => {
 }
 
 export const getMovies = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(MOVIE_DATA)
-      // reject('Cannot fetch data!')
-      }, 50)
-    })
+  return axios.get(`${BASE_URL}/api/v1/movies`).then(res => res.data)
 }
 
 export const createMovie = (movie) => {
