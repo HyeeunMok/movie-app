@@ -7,7 +7,10 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const moviesData = require('./data.json')
+const filePath = './data.json'
+const fs = require('fs')
+const path = require('path')
+const moviesData = require(filePath)
 
 app.prepare().then(() => {
 
@@ -20,7 +23,6 @@ app.prepare().then(() => {
 
   server.get('/api/v1/movies/:id', (req, res) => {
     const { id } = req.params
-
     const movie = moviesData.find(m => m.id === id)
 
     return res.json(movie)
@@ -28,8 +30,17 @@ app.prepare().then(() => {
 
   server.post('/api/v1/movies', (req, res) => {
     const movie = req.body
-    console.log(JSON.stringify(movie))
-    return res.json({...movie, createdTime: 'today', author: 'Hyeeun'})
+    moviesData.push(movie)
+
+    const pathToFile = path.join(__dirname, filePath)
+    const stringifiedData = JSON.stringify(moviesData, null, 2)
+
+    fs.writeFile(pathToFile, stringifiedData, (err) => {
+      if (err) {
+        return res.status(422).send(err)
+      }
+      return res.json('Movie has been successfully added!')
+    })
   })
 
 
@@ -38,21 +49,8 @@ app.prepare().then(() => {
     return res.json({message: `Deleting post of id: ${id}`})
   })
 
-  // server.get('/faq', (req, res) => {
-  //   res.send(`
-  //     <html>
-  //       <head></head>
-  //         <body>
-  //           <h1>Hello World!</h1>
-  //         </body>
-  //     </html>
-  //   `)
-  // })
-  // handling all of the request coming to the server
   server.get('*', (req, res) => {
-    // next.js is handling requests and providing pages where we are navigating to
     return handle(req, res)
-    // return res.json({message: 'Hello Friends, welcome to my website!'})
   })
 
   const PORT = process.env.PORT || 3000;

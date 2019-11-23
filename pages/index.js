@@ -7,20 +7,6 @@ import { getMovies, getCategories } from '../actions'
 
 const Home = (props) => {
   const { images, categories, movies } = props
-  // const [movies, setMovies] = useState([])
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const resMovies = await getMovies()
-  //   setMovies(resMovies)
-  //   }
-
-  //   fetchData();
-  //   // getMovies().then((movies) => {
-  //   //   setMovies(movies)
-  //   // })
-    
-  // }, [])
   return (
     <div>
       <div className="home-page">
