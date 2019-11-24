@@ -27,9 +27,10 @@ const SideMenu  = (props) => {
       <div className="list-group">
         { categories.map(c=> 
           <a 
+            onClick={() => props.changeCategory(c.name)}
             key={c.id}
             href="#" 
-            className="list-group-item">{c.name}</a>
+            className={`list-group-item ${props.activeCategoty === c.name ? 'active' : ''}`}>{c.name}</a>
           )
         }
       </div>
