@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Router from 'next/router'
-import MovieCreateForm from '../../../components/MovieCreateForm'
+import MovieCreateForm from '../../../components/movieCreateForm'
 import { getMovieById, updateMovie } from '../../../actions'
 
 class EditMovie extends React.Component {
@@ -27,7 +27,7 @@ class EditMovie extends React.Component {
         <MovieCreateForm 
           submitButton="Update"
           initialData={movie}
-          handleFormSubmit={this.handleCreateMovie} />
+          handleFormSubmit={this.handleUpdateMovie} />
       </div>
     )
   }

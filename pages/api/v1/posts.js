@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export default async (req, res) => {
 
-  if (req.method == 'POST') {
+  if (req.method === 'POST') {
     const postData = JSON.parse(req.body)
     console.log(postData)
 
