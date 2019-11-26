@@ -28,7 +28,7 @@ class Modal extends React.Component {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Create Movie</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -38,7 +38,7 @@ class Modal extends React.Component {
               </div>
               <div className="modal-footer">
                 <button ref={ele => this.closeButton = ele} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                { this.props.hassubmit && 
+                { this.props.hasSubmit && 
                   <button onClick={this.submitModal} type="button" className="btn btn-primary">Save changes</button>
                 }              
               </div>

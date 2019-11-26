@@ -7,8 +7,6 @@ import '../styles/index.scss'
 
 class MovieApp extends App {
 
-  // TO DO: execute here getInitialProps and pass this data to your page
-
   static async getInitialProps(appContext) {
 
     const appProps = await App.getInitialProps(appContext)
@@ -31,8 +29,8 @@ class MovieApp extends App {
         <Navbar />
         <div className="base-page">
           <Component {...pageProps} />
-        <Footer />
         </div>
+        <Footer />
           <style jsx>{`
             .base-page {
               padding-top: 100px;

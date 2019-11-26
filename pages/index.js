@@ -14,7 +14,7 @@ const Home = (props) => {
   }
 
   const filterMovies = movies => {
-    if (filter === 'all'){
+    if (filter === 'all') {
       return movies
     }
     return movies.filter((m) => {
@@ -32,11 +32,11 @@ const Home = (props) => {
                 changeCategory={changeCategory}
                 activeCategory={filter}
                 categories={categories}
-                appName={"Movie DB"}
+                appName={"Categories"}
                 />
             </div>
             <div className="col-lg-9">
-              <Carousel images={images}/>
+              <Carousel images={images} />
               <h1>Displaying {filter} movies </h1>
               <div className="row">
                 <MovieList movies={filterMovies(movies) || []} />

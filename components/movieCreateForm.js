@@ -35,10 +35,6 @@ const MovieCreateForm = (props) => {
     })
   }
 
-  const submitForm = () => {
-    props.handleFormSubmit({...form})
-  }
-
   const handleGenreChange = (event) => {
     const { options } = event.target
     const optionsLength = options.length
@@ -54,6 +50,10 @@ const MovieCreateForm = (props) => {
       ...form,
       genre: value.toString()
     })
+  }
+  
+  const submitForm = () => {
+    props.handleFormSubmit({...form})
   }
 
   return (
