@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 
+import '../styles/index.scss'
+
 class MovieApp extends App {
 
   // TO DO: execute here getInitialProps and pass this data to your page
@@ -33,7 +35,8 @@ class MovieApp extends App {
         </div>
           <style jsx>{`
             .base-page {
-              padding-top: 70px;
+              padding-top: 100px;
+              padding-bottom: 200px;
                 }
               `}
           </style> 
